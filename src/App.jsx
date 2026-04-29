@@ -9,7 +9,7 @@ import scifi from "../public/books/scifi.json";
 
 import NewNavbar from "./components/NewNavbar";
 import MyFooter from "./components/MyFooter";
-import AllTheBooks from "./components/AllTheBooks";
+import BookList from "./components/BookList";
 
 function App() {
   return (
@@ -18,15 +18,15 @@ function App() {
         <NewNavbar></NewNavbar>
         <main>
           <h1 className="text-center my-3">FANTASY</h1>
-          <AllTheBooks libri={fantasy}></AllTheBooks>
+          <BookList allBooks={fantasy}></BookList>
           <h1 className="text-center my-3">HISTORY</h1>
-          <AllTheBooks libri={history}></AllTheBooks>
+          <BookList allBooks={history}></BookList>
           <h1 className="text-center my-3">HORROR</h1>
-          <AllTheBooks libri={horror}></AllTheBooks>
+          <BookList allBooks={horror}></BookList>
           <h1 className="text-center my-3">ROMANCE</h1>
-          <AllTheBooks libri={romance}></AllTheBooks>
-          <h1 className="text-center my-3">SCIFI</h1>
-          <AllTheBooks libri={scifi}></AllTheBooks>
+          <BookList allBooks={romance}></BookList>
+          <h1 className="text-center my-3">SCI-FI</h1>
+          <BookList allBooks={scifi}></BookList>
         </main>
         <MyFooter></MyFooter>
       </div>
