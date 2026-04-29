@@ -10,7 +10,23 @@ class SingleBook extends Component {
 
   render() {
     return (
-      <Card className="h-100">
+      <Card
+        className={"h-100"}
+        style={{
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          ...(this.state.selected && {
+            transform: "scale(1.05)",
+            zIndex: 1,
+            border: "3px solid red",
+          }),
+        }}
+        onClick={() => {
+          this.setState({
+            selected: !this.state.selected,
+          });
+        }}
+      >
         <Card.Img className="h-75" variant="top" src={this.props.libro.img} />
         <Card.Body className="d-flex flex-column">
           <Card.Title className="flex-grow-1 fs-6">
