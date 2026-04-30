@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { ListGroupItem } from "react-bootstrap";
 
 const url = "https://striveschool-api.herokuapp.com/api/comments/";
 
@@ -30,11 +31,24 @@ class CommentArea extends Component {
   };
 
   componentDidMount() {
-    this.getComments();
+    this.getComments(this.props.asin);
   }
 
   render() {
-    return <p className="mt-3">QUI VA L'AREA DEI COMMENTI</p>;
+    return (
+      <div>
+        {this.state.recensioni.map((review, i) => {
+          return (
+            <ListGroupItem
+              key={review.elementId + i}
+              className="text-start mt-3"
+            >
+              {review.comment}
+            </ListGroupItem>
+          );
+        })}
+      </div>
+    );
   }
 }
 
