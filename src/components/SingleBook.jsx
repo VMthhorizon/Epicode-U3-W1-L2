@@ -1,14 +1,10 @@
 import { Component } from "react";
 import { Card, Button } from "react-bootstrap";
-import CommentArea from "./CommentArea";
+// import CommentArea from "./CommentArea";
 import AddComment from "./AddComment";
 
 class SingleBook extends Component {
-  state = {
-    clicked: {
-      selected: false,
-    },
-  };
+  isSelected = this.props.selectedAsin === this.props.libro.asin;
 
   render() {
     return (
@@ -18,16 +14,12 @@ class SingleBook extends Component {
           style={{
             cursor: "pointer",
             transition: "all 0.3s ease",
-            ...(this.state.selected && {
-              transform: "scale(1.05)",
-              zIndex: 1,
-              border: "3px solid red",
-            }),
+            transform: this.isSelected ? "scale(1.05)" : "scale(1.00",
+            zIndex: this.isSelected ? 1 : 0,
+            border: this.isSelected ? "3px solid red" : "none",
           }}
           onClick={() => {
-            this.setState({
-              selected: !this.state.selected,
-            });
+            this.props.changeAsin(this.props.libro.asin);
           }}
         >
           <Card.Img className="h-75" variant="top" src={this.props.libro.img} />
@@ -40,9 +32,9 @@ class SingleBook extends Component {
             </Card.Text>
             <Button variant="primary">Comprami</Button>
             <AddComment asin={this.props.libro.asin}></AddComment>
-            {this.state.selected && (
+            {/* {this.state.selected && (
               <CommentArea asin={this.props.libro.asin}></CommentArea>
-            )}
+            )} */}
           </Card.Body>
         </Card>
       </>

@@ -38,7 +38,7 @@ class CommentArea extends Component {
   render() {
     return (
       <>
-        <div className="mt-5">Recensioni di altri Lettori</div>
+        <h1 className="fs-1">Recensioni di altri Lettori</h1>
         <ListGroup as="ol" numbered>
           {this.state.recensioni.map((review, i) => {
             return (
