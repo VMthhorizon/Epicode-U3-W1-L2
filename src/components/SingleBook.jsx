@@ -4,9 +4,8 @@ import { Card, Button } from "react-bootstrap";
 import AddComment from "./AddComment";
 
 class SingleBook extends Component {
-  isSelected = this.props.selectedAsin === this.props.libro.asin;
-
   render() {
+    const isSelected = this.props.selectedAsin === this.props.libro.asin;
     return (
       <>
         <Card
@@ -14,9 +13,9 @@ class SingleBook extends Component {
           style={{
             cursor: "pointer",
             transition: "all 0.3s ease",
-            transform: this.isSelected ? "scale(1.05)" : "scale(1.00",
-            zIndex: this.isSelected ? 1 : 0,
-            border: this.isSelected ? "3px solid red" : "none",
+            transform: this.isSelected ? "scale(1.20)" : "scale(1.00)",
+            zIndex: isSelected ? 1 : 0,
+            border: isSelected ? "3px solid red" : "none",
           }}
           onClick={() => {
             this.props.changeAsin(this.props.libro.asin);

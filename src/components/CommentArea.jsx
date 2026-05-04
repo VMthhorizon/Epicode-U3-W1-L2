@@ -10,6 +10,7 @@ class CommentArea extends Component {
   };
 
   getComments = async (id) => {
+    if (!id) return;
     try {
       const response = await fetch(url + id, {
         headers: {
@@ -33,6 +34,12 @@ class CommentArea extends Component {
 
   componentDidMount() {
     this.getComments(this.props.asin);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.asin !== prevProps.asin) {
+      this.getComments(this.props.asin);
+    }
   }
 
   render() {

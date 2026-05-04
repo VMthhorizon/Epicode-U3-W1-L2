@@ -17,15 +17,15 @@ function App() {
       <div className="d-flex flex-column justify-content-between min-vh-100">
         <NewNavbar></NewNavbar>
         <main>
-          <h1 className="text-center my-3">FANTASY</h1>
+          <h1 className="text-start my-3 ms-3">FANTASY</h1>
           <BookList allBooks={fantasy}></BookList>
-          <h1 className="text-center my-3">HISTORY</h1>
+          <h1 className="text-start my-3 ms-3">HISTORY</h1>
           <BookList allBooks={history}></BookList>
-          <h1 className="text-center my-3">HORROR</h1>
+          <h1 className="text-start my-3 ms-3">HORROR</h1>
           <BookList allBooks={horror}></BookList>
-          <h1 className="text-center my-3">ROMANCE</h1>
+          <h1 className="text-start my-3 ms-3">ROMANCE</h1>
           <BookList allBooks={romance}></BookList>
-          <h1 className="text-center my-3">SCI-FI</h1>
+          <h1 className="text-start my-3 ms-3">SCI-FI</h1>
           <BookList allBooks={scifi}></BookList>
         </main>
         <MyFooter></MyFooter>
