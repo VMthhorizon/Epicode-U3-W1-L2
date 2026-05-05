@@ -1,15 +1,13 @@
-import { Component } from "react";
+import { useState, useEffect } from "react";
 import CommentList from "./CommentList";
 import { ListGroup } from "react-bootstrap";
 
 const url = "https://striveschool-api.herokuapp.com/api/comments/";
 
-class CommentArea extends Component {
-  state = {
-    recensioni: [],
-  };
+const CommentArea = function (props) {
+  const [recensioni, setRecensioni] = useState([]);
 
-  getComments = async (id) => {
+  const getComments = async (id) => {
     if (!id) return;
     try {
       const response = await fetch(url + id, {
@@ -21,9 +19,7 @@ class CommentArea extends Component {
       if (response.ok) {
         const data = await response.json();
 
-        this.setState({
-          recensioni: data,
-        });
+        setRecensioni(data);
       } else {
         console.log("ERRORE", response.status);
       }
@@ -32,33 +28,28 @@ class CommentArea extends Component {
     }
   };
 
-  componentDidMount() {
-    this.getComments(this.props.asin);
-  }
+  useEffect(() => {
+    console.log("PROVA RIPETIZIONI");
 
-  componentDidUpdate(prevProps) {
-    if (this.props.asin !== prevProps.asin) {
-      this.getComments(this.props.asin);
-    }
-  }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    getComments(props.asin);
+  }, [props.asin]);
 
-  render() {
-    return (
-      <>
-        <h1 className="fs-1">Recensioni di altri Lettori</h1>
-        <ListGroup as="ol" numbered>
-          {this.state.recensioni.map((review, i) => {
-            return (
-              <CommentList
-                review={review}
-                key={review.elementId + i}
-              ></CommentList>
-            );
-          })}
-        </ListGroup>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <h1 className="fs-1">Recensioni di altri Lettori</h1>
+      <ListGroup as="ol" numbered>
+        {recensioni.map((review, i) => {
+          return (
+            <CommentList
+              review={review}
+              key={review.elementId + i}
+            ></CommentList>
+          );
+        })}
+      </ListGroup>
+    </>
+  );
+};
 
 export default CommentArea;
