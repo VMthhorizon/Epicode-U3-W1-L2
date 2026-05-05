@@ -7,10 +7,10 @@ const url = "https://striveschool-api.herokuapp.com/api/comments/";
 const CommentArea = function (props) {
   const [recensioni, setRecensioni] = useState([]);
 
-  const getComments = async (id) => {
-    if (!id) return;
+  const getComments = async (asin) => {
+    if (!asin) return;
     try {
-      const response = await fetch(url + id, {
+      const response = await fetch(url + asin, {
         headers: {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWYzNTU4ZGYwNDIwZDAwMTUxNTVhOWQiLCJpYXQiOjE3Nzc1NTQ4MjksImV4cCI6MTc3ODc2NDQyOX0.FfO2gIje8SJEwqfo3qxYjHSyivoGQ2apJqdynSk7J74",
@@ -29,9 +29,6 @@ const CommentArea = function (props) {
   };
 
   useEffect(() => {
-    console.log("PROVA RIPETIZIONI");
-
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     getComments(props.asin);
   }, [props.asin]);
 
