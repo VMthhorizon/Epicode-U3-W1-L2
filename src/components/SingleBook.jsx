@@ -6,7 +6,7 @@ const SingleBook = function (props) {
   return (
     <>
       <Card
-        className={"h-100"}
+        className="h-100"
         style={{
           cursor: "pointer",
           transition: "all 0.3s ease",
