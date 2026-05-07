@@ -11,22 +11,16 @@ import NewNavbar from "./components/NewNavbar";
 import MyFooter from "./components/MyFooter";
 import BookList from "./components/BookList";
 
+const AllBooks = fantasy.concat(history, horror, romance, scifi);
+
 function App() {
   return (
     <>
       <div className="d-flex flex-column justify-content-between min-vh-100">
         <NewNavbar></NewNavbar>
         <main>
-          <h1 className="text-start my-3 ms-3">FANTASY</h1>
-          <BookList allBooks={fantasy}></BookList>
-          <h1 className="text-start my-3 ms-3">HISTORY</h1>
-          <BookList allBooks={history}></BookList>
-          <h1 className="text-start my-3 ms-3">HORROR</h1>
-          <BookList allBooks={horror}></BookList>
-          <h1 className="text-start my-3 ms-3">ROMANCE</h1>
-          <BookList allBooks={romance}></BookList>
-          <h1 className="text-start my-3 ms-3">SCI-FI</h1>
-          <BookList allBooks={scifi}></BookList>
+          <h1 className="text-start ms-3 mt-3">Scegli un Libro</h1>
+          <BookList allBooks={AllBooks}></BookList>
         </main>
         <MyFooter></MyFooter>
       </div>

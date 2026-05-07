@@ -16,12 +16,12 @@ const BookList = function (props) {
       fluid
       className="my-4 justify-content-between align-items-center"
     >
-      <h1>CIAO BELLI</h1>
       <Row>
         <Col xs={8}>
           <Row>
             <Col>
               <Form.Control
+                data-testid="input-test"
                 className="my-4"
                 type="text"
                 placeholder="Cerca un libro"
@@ -45,6 +45,7 @@ const BookList = function (props) {
                 return (
                   <Col xs={12} md={6} lg={4} key={libro.asin + i}>
                     <SingleBook
+                      datatestid="card-for-test"
                       libro={libro}
                       changeAsin={changeAsin}
                       selectedAsin={asin}

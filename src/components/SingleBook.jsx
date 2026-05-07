@@ -7,6 +7,7 @@ const SingleBook = function (props) {
   return (
     <>
       <Card
+        data-testid={props.datatestid}
         className="h-100"
         style={{
           cursor: "pointer",
@@ -18,7 +19,6 @@ const SingleBook = function (props) {
         onClick={() => {
           props.changeAsin(props.libro.asin);
         }}
-        data-testid="card-for-test"
       >
         <Card.Img className="h-75" variant="top" src={props.libro.img} />
         <Card.Body className="d-flex flex-column">
