@@ -3,6 +3,7 @@ import AddComment from "./AddComment";
 
 const SingleBook = function (props) {
   const isSelected = props.selectedAsin === props.libro.asin;
+
   return (
     <>
       <Card
@@ -17,6 +18,7 @@ const SingleBook = function (props) {
         onClick={() => {
           props.changeAsin(props.libro.asin);
         }}
+        data-testid="card-for-test"
       >
         <Card.Img className="h-75" variant="top" src={props.libro.img} />
         <Card.Body className="d-flex flex-column">
